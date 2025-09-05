@@ -126,6 +126,10 @@ jobs:
             echo "No recovery makefile file found!"
         fi
       continue-on-error: true
+      
+    - name: Clean recovery root
+      run: |
+        rm -rf android-recovery/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery
 
     - name: Building Image 
       run: |
